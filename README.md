@@ -1,52 +1,27 @@
-# Parse Server Firebase
+# Parse Server Firebase (Auth Only)
 
 ![npm](https://img.shields.io/npm/v/parse-server-firebase) ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/parse-server-firebase) ![NPM](https://img.shields.io/npm/l/parse-server-firebase)
+
+## Note
+
+This is just a fork of the original [Parse Server Firebase package](https://github.com/L3K0V/parse-server-firebase) with only the auth portion included. It was forked so that those who do not need the storage adapter will not be required to install the somewhat large sharp package
 
 ## Getting started
 
 Install the module by npm
 
 ```
-$ npm i -S parse-server-firebase
+$ npm i -S parse-server-firebase-auth
 ```
 
 or using yarn
 
 ```
-$ yarn add parse-server-firebase
-```
-
-## Firebase Storage Adapter
-> Based on: https://github.com/parse-community/parse-server-gcs-adapter
-
-```bash
-FIREBASE_SERVICE_ACCOUNT="$(< firebaseAccountKey.json)"
-FIREBASE_STORAGE_BUCKET="PROJECT_ID.appspot.com",
-FIREBASE_STORAGE_CACHE_CONTROL="public, max-age=3600"
-FIREBASE_STORAGE_DIRECT_ACCESS=false
-```
-
-`FIREBASE_SERVICE_ACCOUNT` can be specified as the string content of the credentials JSON file or can be specified as a path to the JSON file.
-
-```bash
-FIREBASE_SERVICE_ACCOUNT="/relative/to/project/firebaseAccountKey.json"
-```
-
-### Add adapter to your Parse Server
-
-```ts
-import { ParseServer } from 'parse-server'
-import { FirebaseStorageAdapter } from 'parse-server-firebase'
-...
-const parserServer = new ParseServer({
-  appId: "APP_ID",
-  appName: "APP NAME",
-  ...
-  filesAdapter: new FirebaseStorageAdapter(),
-})
+$ yarn add parse-server-firebase-auth
 ```
 
 ## Fireabse Auth Adapter
+
 > Based on: https://github.com/parse-server-modules/parse-server-firebase-auth-adapter
 
 ```bash
@@ -63,7 +38,7 @@ FIREBASE_SERVICE_ACCOUNT="/relative/to/project/firebaseAccountKey.json"
 
 ```ts
 import { ParseServer } from 'parse-server'
-import { FirebaseAuthAdapter } from 'parse-server-firebase'
+import { FirebaseAuthAdapter } from 'parse-server-firebase-auth'
 ...
 const parserServer = new ParseServer({
   appId: "APP_ID",
@@ -73,37 +48,6 @@ const parserServer = new ParseServer({
     firebase: new FirebaseAuthAdapter()
   }
 })
-```
-
-#### Extensions
-
-**Generate thumbnails**
-
-Ouf of the box you can generate thumbnails for images by specifying `FIREBASE_THUMBNAILS_SIZES` with an array of the desired target sizes. Each image will be generated presering the aspect ratio of the image, ensuring the image covers both provided dimensions by cropping/clipping to fit.
-
-```bash
-$ export FIREBASE_THUMBNAILS_SIZES="64x64,128x128,256x256"
-```
-
-If you want to resize to fit a specific width or height use the following syntax:
-
-```bash
-$ export FIREBASE_THUMBNAILS_SIZES="64x0,128x0,256x256"
-```
-
-The generated file names will have appended `_thumb_{size}` for example:
-
-Original:
-
-```
-a217ca28b0bfac7db4e3f1272ebb8e12_test.jpg
-```
-
-and generated:
-
-```
-a217ca28b0bfac7db4e3f1272ebb8e12_test_thumb_0x512..jpg
-a217ca28b0bfac7db4e3f1272ebb8e12_test_thumb_1280x720..jpg
 ```
 
 ### Authenticate
