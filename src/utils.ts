@@ -3,9 +3,9 @@ const optional = <T extends string | number | boolean | null | undefined>(
   fallback: T
 ): string | T => process.env[name] || fallback;
 
-const required = (name: string): string => {
-  if (process.env[name] === undefined || process.env[name] === "") {
-    throw new Error("Missing required env var: " + name);
+const required = (name: string, valueOnly:boolean = false): string | object => {
+  if (!process.env[name]?.trim()) {
+    throw new Parse.Error(Parse.Error.SCRIPT_FAILED, "Missing required env variable: " + name);
   }
   return process.env[name];
 };

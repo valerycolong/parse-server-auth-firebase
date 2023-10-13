@@ -14,10 +14,14 @@
     "importHelpers": true,
     "removeComments": true,
     "moduleResolution": "node",
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "skipLibCheck": true
   },
+  "include": [
+    "./src/*"
+  ],
   "exclude": [
     "node_modules",
-    "lib"
+    "lib/**/*"
   ]
 }

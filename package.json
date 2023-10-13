@@ -1,20 +1,20 @@
 {
   "name": "parse-server-firebase-auth",
   "version": "1.0.0",
-  "description": "Firebase auth adapter, extensions and utilities for Parse Server",
+  "description": "Firebase auth adapter for Parse Server",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nopol10/parse-server-firebase"
+    "url": "https://github.com/valerycolong/parse-server-firebase-auth"
   },
   "main": "lib/main/index.js",
   "typings": "lib/main/index.d.ts",
   "module": "lib/module/index.js",
   "scripts": {
-    "lint": "yarn eslint . --ext .ts",
+    "lint": "npm run eslint . --ext .ts",
     "build": "tsc -p tsconfig.json && tsc -p tsconfig.module.json"
   },
-  "homepage": "https://github.com/nopol10/parse-server-firebase",
-  "bugs": "https://github.com/nopol10/parse-server-firebase/issues",
+  "homepage": "https://github.com/valerycolong/parse-server-firebase-auth.git",
+  "bugs": "https://github.com/valerycolong/parse-server-firebase-auth.git",
   "keywords": [
     "parse",
     "parse-server",
@@ -22,18 +22,17 @@
     "firebase",
     "fireabse-auth"
   ],
-  "author": "Asen Lekov",
+  "author": "Valery Colong",
   "license": "MIT",
   "devDependencies": {
-    "@types/express": "^4.17.6",
-    "@types/node": "~13.11.1",
-    "@types/parse": "^2.10.18",
-    "@typescript-eslint/eslint-plugin": "^2.27.0",
-    "@typescript-eslint/parser": "^2.27.0",
-    "eslint": "^6.8.0",
-    "express": "^4.17.1",
-    "parse": "^2.12.0",
-    "typescript": "^3.8.3"
+    "@types/node": "~20.8.5",
+    "@types/parse": "^3.0.5",
+    "@types/eslint": "^8.44.4",    
+    "@typescript-eslint/eslint-plugin": "^6.7.5",
+    "@typescript-eslint/parser": "^6.7.5",
+    "eslint": "^8.51.0",
+    "parse": "^4.2.0",
+    "typescript": "^5.2.2"
   },
   "engines": {
     "node": ">=12"
@@ -42,6 +41,6 @@
     "lib"
   ],
   "dependencies": {
-    "firebase-admin": "^9.2.0"
+    "firebase-admin": "^11.11.0"
   }
 }

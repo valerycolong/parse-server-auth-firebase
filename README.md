@@ -1,10 +1,10 @@
-# Parse Server Firebase (Auth Only)
+# Parse Server Firebase Auth
 
-![npm](https://img.shields.io/npm/v/parse-server-firebase) ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/parse-server-firebase) ![NPM](https://img.shields.io/npm/l/parse-server-firebase)
+![npm](https://img.shields.io/npm/v/parse-server-firebase-auth) ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/parse-server-firebase-auth) ![NPM](https://img.shields.io/npm/l/parse-server-firebase-auth)
 
 ## Note
 
-This is just a fork of the original [Parse Server Firebase package](https://github.com/L3K0V/parse-server-firebase) with only the auth portion included. It was forked so that those who do not need the storage adapter will not be required to install the somewhat large sharp package
+This is a fork of [Parse Server Firebase package](https://github.com/L3K0V/parse-server-firebase) rewritten to adhere to custom authentication api exposed by Parse Server 4 and above.
 
 ## Getting started
 
@@ -25,16 +25,16 @@ $ yarn add parse-server-firebase-auth
 > Based on: https://github.com/parse-server-modules/parse-server-firebase-auth-adapter
 
 ```bash
-FIREBASE_SERVICE_ACCOUNT="$(< firebaseAccountKey.json)"
+FIREBASE_SERVICE_ACCOUNT_KEY="$(< firebaseAccountKey.json)"
 ```
 
-`FIREBASE_SERVICE_ACCOUNT` can be specified as the string content of the credentials JSON file or can be specified as a path to the JSON file by using:
+`FIREBASE_SERVICE_ACCOUNT_KEY` can be specified as the string content of the credentials JSON file or can be specified as a path to the JSON file by using:
 
 ```bash
-FIREBASE_SERVICE_ACCOUNT="/relative/to/project/firebaseAccountKey.json"
+FIREBASE_SERVICE_ACCOUNT="/relative/to/project/serviceAccountKeyFilename.json"
 ```
 
-### Add adapter to your Parse Server
+### Add adapter to your Parse Server Config
 
 ```ts
 import { ParseServer } from 'parse-server'
@@ -45,7 +45,11 @@ const parserServer = new ParseServer({
   appName: "APP NAME",
   ...
   auth: {
-    firebase: new FirebaseAuthAdapter()
+    firebase: {
+     module: "parse-server-firebase-auth" // OR object,
+     option1: "",
+     option2: "",
+   }
   }
 })
 ```
@@ -69,6 +73,6 @@ curl -X POST \
 
 ## Why so?
 
-Based on previous adapters provided by the parse community this repository provides firebase adapters and extensions rewritten in TypesScript and newer features in JavaScript for Parse Server.
+Based on previous adapters provided by the parse community this repository provides firebase auth adapter rewritten in TypesScript and newer features in JavaScript for Parse Server. It also uses the latest npm packages as of Oct 2023.
 
-This package solves few issues. When setup firebase admin NodeJS SDK a credentials file is required. The previous adapters requires the credentials file to be specified by path. In some scenarios this is not aplicable because track the credentials file into the version control system is not good. This package will combine and contains everything needed for all of the service integration supported with Parse Server. In addition provided by this package storage adapter adds support for streaming of files.
+This package solves few issues. When setup firebase admin NodeJS SDK a credentials file is required. The previous adapters requires the credentials file to be specified by path. In some scenarios this is not applicable because track the credentials file into the version control system is not good. This package will combine and contains everything needed for all of the service integration supported with Parse Server. In addition provided by this package storage adapter adds support for streaming of files.
