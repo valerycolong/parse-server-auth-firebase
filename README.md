@@ -1,10 +1,10 @@
-# Parse Server Firebase Auth
+# Parse Server Auth Firebase
 
-![npm](https://img.shields.io/npm/v/parse-server-auth-firebase) ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/parse-server-auth-firebase) ![NPM](https://img.shields.io/npm/l/parse-server-auth-firebase)
+![npm](https://img.shields.io/npm/v/parse-server-firebase-auth) ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/parse-server-firebase-auth) ![NPM](https://img.shields.io/npm/l/parse-server-firebase-auth)
 
 ## Note
 
-This is a fork of [Parse Server Firebase package](https://github.com/L3K0V/parse-server-firebase) rewritten to adhere to custom authentication api exposed by Parse Server 4 and above.
+This is a fork of [Parse Server Firebase Package](https://github.com/L3K0V/parse-server-firebase-auth) rewritten to adhere to custom authentication api exposed by Parse Server 4 and above.
 
 ## Getting started
 
@@ -20,9 +20,9 @@ or using yarn
 $ yarn add parse-server-auth-firebase
 ```
 
-## Fireabse Auth Adapter
+## Firebase Auth Adapter
 
-> Based on: https://github.com/parse-server-modules/parse-server-auth-firebase-adapter
+> Based on: https://github.com/parse-server-modules/parse-server-firebase-auth-adapter
 
 ```bash
 FIREBASE_SERVICE_ACCOUNT_KEY="$(< firebaseAccountKey.json)"

@@ -1,6 +1,6 @@
 {
   "name": "parse-server-auth-firebase",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Firebase auth adapter for Parse Server",
   "repository": {
     "type": "git",

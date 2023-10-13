@@ -8,7 +8,7 @@ admin.initializeApp({
 });
 
 // Returns a promise that fulfills if this app id is valid.
-export function validateAppId(): Promise<void> {
+function validateAppId(): Promise<void> {
 //export function validateAppId(appIds, authData, options): Promise<void> {
     return Promise.resolve()
 }
@@ -20,7 +20,7 @@ export function validateAppId(): Promise<void> {
  * @param options The options passed along with the call such as username, email, password 
  * @returns 
  */
-export async function validateAuthData(authData: {id: string, access_token: string}, options: unknown): Promise<void> {
+async function validateAuthData(authData: {id: string, access_token: string}): Promise<void> {
     try {
         if (!(authData?.id?.trim() && authData?.access_token?.trim())){
             throw new Parse.Error(Parse.Error.VALIDATION_ERROR, 'Both user id and access token are required.')
@@ -35,3 +35,9 @@ export async function validateAuthData(authData: {id: string, access_token: stri
         throw new Parse.Error(Parse.Error.SCRIPT_FAILED, `Firebase auth verification failed. The error was ${error}`)
     }
 }
+
+
+module.exports = {
+    validateAppId,
+    validateAuthData,
+  };
