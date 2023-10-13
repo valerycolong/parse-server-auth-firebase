@@ -1,6 +1,6 @@
 # Parse Server Firebase Auth
 
-![npm](https://img.shields.io/npm/v/parse-server-firebase-auth) ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/parse-server-firebase-auth) ![NPM](https://img.shields.io/npm/l/parse-server-firebase-auth)
+![npm](https://img.shields.io/npm/v/parse-server-auth-firebase) ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/parse-server-auth-firebase) ![NPM](https://img.shields.io/npm/l/parse-server-auth-firebase)
 
 ## Note
 
@@ -11,18 +11,18 @@ This is a fork of [Parse Server Firebase package](https://github.com/L3K0V/parse
 Install the module by npm
 
 ```
-$ npm i -S parse-server-firebase-auth
+$ npm i -S parse-server-auth-firebase
 ```
 
 or using yarn
 
 ```
-$ yarn add parse-server-firebase-auth
+$ yarn add parse-server-auth-firebase
 ```
 
 ## Fireabse Auth Adapter
 
-> Based on: https://github.com/parse-server-modules/parse-server-firebase-auth-adapter
+> Based on: https://github.com/parse-server-modules/parse-server-auth-firebase-adapter
 
 ```bash
 FIREBASE_SERVICE_ACCOUNT_KEY="$(< firebaseAccountKey.json)"
@@ -38,7 +38,6 @@ FIREBASE_SERVICE_ACCOUNT="/relative/to/project/serviceAccountKeyFilename.json"
 
 ```ts
 import { ParseServer } from 'parse-server'
-import { FirebaseAuthAdapter } from 'parse-server-firebase-auth'
 ...
 const parserServer = new ParseServer({
   appId: "APP_ID",
@@ -46,9 +45,7 @@ const parserServer = new ParseServer({
   ...
   auth: {
     firebase: {
-     module: "parse-server-firebase-auth" // OR object,
-     option1: "",
-     option2: "",
+     module: "parse-server-auth-firebase"
    }
   }
 })

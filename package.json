@@ -1,10 +1,10 @@
 {
-  "name": "parse-server-firebase-auth",
+  "name": "parse-server-auth-firebase",
   "version": "1.0.0",
   "description": "Firebase auth adapter for Parse Server",
   "repository": {
     "type": "git",
-    "url": "https://github.com/valerycolong/parse-server-firebase-auth"
+    "url": "https://github.com/valerycolong/parse-server-auth-firebase"
   },
   "main": "lib/main/index.js",
   "typings": "lib/main/index.d.ts",
@@ -13,14 +13,14 @@
     "lint": "npm run eslint . --ext .ts",
     "build": "tsc -p tsconfig.json && tsc -p tsconfig.module.json"
   },
-  "homepage": "https://github.com/valerycolong/parse-server-firebase-auth.git",
-  "bugs": "https://github.com/valerycolong/parse-server-firebase-auth.git",
+  "homepage": "https://github.com/valerycolong/parse-server-auth-firebase.git",
+  "bugs": "https://github.com/valerycolong/parse-server-auth-firebase.git",
   "keywords": [
     "parse",
     "parse-server",
     "parse-cloud",
     "firebase",
-    "fireabse-auth"
+    "firebase-auth"
   ],
   "author": "Valery Colong",
   "license": "MIT",
